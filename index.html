@@ -6,7 +6,7 @@
 
 <title>Carlos França | Performance & Estética</title>
 
-<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.tailwindcss.com"></script>              
 <script src="https://unpkg.com/lucide@latest"></script>
 
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -49,7 +49,30 @@ overflow-x:hidden;
 font-family:'Plus Jakarta Sans',sans-serif;
 color:#fff;
 }
+.watermark{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
 
+background-image:url('./images/watermark.jpg');
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+
+opacity:0.10;
+
+z-index:0;
+pointer-events:none;
+}
+
+.dark-overlay{
+position:absolute;
+inset:0;
+background:rgba(0,0,0,.82);
+z-index:1;
+}
 /* GRID */
 
 .grid-overlay{
@@ -200,7 +223,7 @@ max-height:580px;
 <section class="relative min-h-screen overflow-hidden flex items-center grid-overlay">
 
 <div class="watermark"></div>
-
+<div class="dark-overlay"></div>
 <div class="glow-green top-[-200px] left-[-100px]"></div>
 <div class="glow-red bottom-[-200px] right-[-100px]"></div>
 

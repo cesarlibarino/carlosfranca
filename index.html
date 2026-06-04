@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 <title>Carlos França | Performance & Estética</title>
 
-<script src="https://cdn.tailwindcss.com"></script>              
+<!-- TAILWIND -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- ICONS -->
 <script src="https://unpkg.com/lucide@latest"></script>
 
+<!-- FONT -->
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <script>
@@ -20,9 +25,9 @@ sans:['Plus Jakarta Sans','sans-serif']
 },
 colors:{
 brand:{
-dark:'#050505',
 green:'#0C9B2D',
 red:'#A5142B',
+dark:'#050505',
 white:'#F5F5F5'
 }
 }
@@ -33,14 +38,16 @@ white:'#F5F5F5'
 
 <style>
 
-html{
-scroll-behavior:smooth;
-}
+/* RESET */
 
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
 }
 
 body{
@@ -49,6 +56,9 @@ overflow-x:hidden;
 font-family:'Plus Jakarta Sans',sans-serif;
 color:#fff;
 }
+
+/* WATERMARK */
+
 .watermark{
 position:absolute;
 top:0;
@@ -56,7 +66,8 @@ left:0;
 width:100%;
 height:100%;
 
-background-image:url('./images/watermark.jpg');
+background-image:url('images/watermark.jpg');
+
 background-size:cover;
 background-position:center;
 background-repeat:no-repeat;
@@ -67,19 +78,29 @@ z-index:0;
 pointer-events:none;
 }
 
+/* DARK OVERLAY */
+
 .dark-overlay{
 position:absolute;
 inset:0;
 background:rgba(0,0,0,.82);
 z-index:1;
 }
-/* GRID */
 
-.grid-overlay{
+/* HERO GRID */
+
+.hero-grid{
+position:absolute;
+inset:0;
+
 background-image:
 linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
 linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+
 background-size:40px 40px;
+
+z-index:1;
+pointer-events:none;
 }
 
 /* GLOW */
@@ -89,9 +110,8 @@ position:absolute;
 width:500px;
 height:500px;
 border-radius:999px;
-background:rgba(12,155,45,.16);
+background:rgba(12,155,45,.18);
 filter:blur(120px);
-pointer-events:none;
 z-index:1;
 }
 
@@ -100,37 +120,16 @@ position:absolute;
 width:500px;
 height:500px;
 border-radius:999px;
-background:rgba(165,20,43,.16);
+background:rgba(165,20,43,.18);
 filter:blur(120px);
-pointer-events:none;
 z-index:1;
-}
-
-/* WATERMARK */
-
-.watermark{
-position:absolute;
-inset:0;
-
-background-image:
-linear-gradient(rgba(0,0,0,.82), rgba(0,0,0,.88)),
-url('./images/watermark.jpg');
-
-background-size:cover;
-background-position:center;
-background-repeat:no-repeat;
-
-opacity:.18;
-
-pointer-events:none;
-z-index:0;
 }
 
 /* REVEAL */
 
 .reveal{
 opacity:0;
-transform:translateY(50px);
+transform:translateY(60px);
 transition:1s ease;
 }
 
@@ -139,7 +138,20 @@ opacity:1;
 transform:translateY(0);
 }
 
-/* CARDS */
+/* BUTTON */
+
+.primary-btn{
+background:linear-gradient(135deg,#0C9B2D,#087923);
+transition:.3s;
+box-shadow:0 20px 60px rgba(12,155,45,.25);
+}
+
+.primary-btn:hover{
+transform:translateY(-4px);
+box-shadow:0 20px 80px rgba(12,155,45,.4);
+}
+
+/* CARD */
 
 .card{
 background:rgba(255,255,255,.03);
@@ -153,20 +165,7 @@ transform:translateY(-6px);
 border-color:rgba(12,155,45,.35);
 }
 
-/* BUTTON */
-
-.primary-btn{
-background:linear-gradient(135deg,#0C9B2D,#087923);
-transition:.3s;
-box-shadow:0 20px 60px rgba(12,155,45,.25);
-}
-
-.primary-btn:hover{
-transform:translateY(-3px);
-box-shadow:0 20px 70px rgba(12,155,45,.4);
-}
-
-/* TITLES */
+/* TITLE */
 
 .section-title{
 line-height:.92;
@@ -198,7 +197,7 @@ z-index:3;
 @media(max-width:768px){
 
 .hero-title{
-font-size:3.1rem;
+font-size:3rem;
 line-height:.95;
 }
 
@@ -220,10 +219,12 @@ max-height:580px;
 
 <!-- HERO -->
 
-<section class="relative min-h-screen overflow-hidden flex items-center grid-overlay">
+<section class="relative min-h-screen overflow-hidden flex items-center">
 
 <div class="watermark"></div>
 <div class="dark-overlay"></div>
+<div class="hero-grid"></div>
+
 <div class="glow-green top-[-200px] left-[-100px]"></div>
 <div class="glow-red bottom-[-200px] right-[-100px]"></div>
 
@@ -234,7 +235,7 @@ max-height:580px;
 <div class="space-y-8 reveal">
 
 <img
-src="./images/logo.png"
+src="images/logo.png"
 alt="Carlos França"
 class="w-56"
 />
@@ -296,7 +297,7 @@ consultoria personalizada
 <div class="absolute w-[420px] h-[420px] rounded-full bg-brand-green/20 blur-[120px] z-[1]"></div>
 
 <img
-src="./images/hero.jpg"
+src="images/hero.jpg"
 alt="Carlos França"
 class="hero-image"
 />
@@ -312,6 +313,7 @@ class="hero-image"
 <section class="relative py-32 overflow-hidden">
 
 <div class="watermark"></div>
+<div class="dark-overlay"></div>
 
 <div class="max-w-6xl mx-auto px-6 relative z-[2]">
 
@@ -380,6 +382,7 @@ Seu físico começa a afetar confiança e energia.
 <section class="relative py-32 overflow-hidden">
 
 <div class="watermark"></div>
+<div class="dark-overlay"></div>
 
 <div class="glow-green bottom-[-250px] left-[-100px]"></div>
 
@@ -462,13 +465,14 @@ Mais disposição, definição e evolução constante.
 <section class="relative py-32 overflow-hidden">
 
 <div class="watermark"></div>
+<div class="dark-overlay"></div>
 
 <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center relative z-[2]">
 
 <div class="reveal">
 
 <img
-src="./images/about.jpg"
+src="images/about.jpg"
 alt="Carlos França"
 class="about-image"
 />
@@ -512,6 +516,7 @@ Tudo aplicado de forma personalizada para sua realidade e objetivo.
 <section class="relative py-32 overflow-hidden">
 
 <div class="watermark"></div>
+<div class="dark-overlay"></div>
 
 <div class="glow-green bottom-[-200px] left-[-100px]"></div>
 

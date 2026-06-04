@@ -50,6 +50,8 @@ font-family:'Plus Jakarta Sans',sans-serif;
 color:#fff;
 }
 
+/* GRID */
+
 .grid-overlay{
 background-image:
 linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
@@ -57,14 +59,17 @@ linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
 background-size:40px 40px;
 }
 
+/* GLOW */
+
 .glow-green{
 position:absolute;
 width:500px;
 height:500px;
 border-radius:999px;
-background:rgba(12,155,45,.18);
+background:rgba(12,155,45,.16);
 filter:blur(120px);
 pointer-events:none;
+z-index:1;
 }
 
 .glow-red{
@@ -72,24 +77,33 @@ position:absolute;
 width:500px;
 height:500px;
 border-radius:999px;
-background:rgba(165,20,43,.18);
+background:rgba(165,20,43,.16);
 filter:blur(120px);
 pointer-events:none;
+z-index:1;
 }
+
+/* WATERMARK */
 
 .watermark{
 position:absolute;
 inset:0;
-background:
-linear-gradient(rgba(0,0,0,.88),rgba(0,0,0,.90)),
+
+background-image:
+linear-gradient(rgba(0,0,0,.82), rgba(0,0,0,.88)),
 url('./images/watermark.jpg');
+
 background-size:cover;
 background-position:center;
 background-repeat:no-repeat;
-mix-blend-mode:lighten;
+
+opacity:.18;
+
 pointer-events:none;
 z-index:0;
 }
+
+/* REVEAL */
 
 .reveal{
 opacity:0;
@@ -102,6 +116,8 @@ opacity:1;
 transform:translateY(0);
 }
 
+/* CARDS */
+
 .card{
 background:rgba(255,255,255,.03);
 border:1px solid rgba(255,255,255,.08);
@@ -110,9 +126,11 @@ transition:.4s;
 }
 
 .card:hover{
-transform:translateY(-5px);
-border-color:rgba(12,155,45,.25);
+transform:translateY(-6px);
+border-color:rgba(12,155,45,.35);
 }
+
+/* BUTTON */
 
 .primary-btn{
 background:linear-gradient(135deg,#0C9B2D,#087923);
@@ -122,19 +140,25 @@ box-shadow:0 20px 60px rgba(12,155,45,.25);
 
 .primary-btn:hover{
 transform:translateY(-3px);
-box-shadow:0 20px 70px rgba(12,155,45,.45);
+box-shadow:0 20px 70px rgba(12,155,45,.4);
 }
+
+/* TITLES */
 
 .section-title{
 line-height:.92;
 letter-spacing:-0.06em;
 }
 
+/* IMAGES */
+
 .hero-image{
 max-height:780px;
 object-fit:cover;
 border-radius:36px;
 border:1px solid rgba(255,255,255,.08);
+position:relative;
+z-index:3;
 }
 
 .about-image{
@@ -142,16 +166,25 @@ width:100%;
 border-radius:36px;
 border:1px solid rgba(255,255,255,.08);
 object-fit:cover;
+position:relative;
+z-index:3;
 }
+
+/* MOBILE */
 
 @media(max-width:768px){
 
 .hero-title{
-font-size:3.2rem;
+font-size:3.1rem;
+line-height:.95;
 }
 
 .section-title{
 font-size:3rem !important;
+}
+
+.hero-image{
+max-height:580px;
 }
 
 }
@@ -171,7 +204,7 @@ font-size:3rem !important;
 <div class="glow-green top-[-200px] left-[-100px]"></div>
 <div class="glow-red bottom-[-200px] right-[-100px]"></div>
 
-<div class="max-w-7xl mx-auto px-6 py-24 grid lg:grid-cols-2 gap-20 items-center relative z-10">
+<div class="max-w-7xl mx-auto px-6 py-24 grid lg:grid-cols-2 gap-20 items-center relative z-[2]">
 
 <!-- LEFT -->
 
@@ -237,12 +270,12 @@ consultoria personalizada
 
 <div class="relative flex justify-center reveal">
 
-<div class="absolute w-[420px] h-[420px] rounded-full bg-brand-green/20 blur-[120px]"></div>
+<div class="absolute w-[420px] h-[420px] rounded-full bg-brand-green/20 blur-[120px] z-[1]"></div>
 
 <img
 src="./images/hero.jpg"
 alt="Carlos França"
-class="hero-image relative z-10"
+class="hero-image"
 />
 
 </div>
@@ -253,11 +286,11 @@ class="hero-image relative z-10"
 
 <!-- PROBLEMA -->
 
-<section class="relative py-32 bg-[#090909] overflow-hidden">
+<section class="relative py-32 overflow-hidden">
 
 <div class="watermark"></div>
 
-<div class="max-w-6xl mx-auto px-6 relative z-10">
+<div class="max-w-6xl mx-auto px-6 relative z-[2]">
 
 <div class="max-w-3xl mb-20 reveal">
 
@@ -325,7 +358,9 @@ Seu físico começa a afetar confiança e energia.
 
 <div class="watermark"></div>
 
-<div class="max-w-6xl mx-auto px-6 relative z-10">
+<div class="glow-green bottom-[-250px] left-[-100px]"></div>
+
+<div class="max-w-6xl mx-auto px-6 relative z-[2]">
 
 <div class="text-center max-w-4xl mx-auto mb-24 reveal">
 
@@ -401,11 +436,11 @@ Mais disposição, definição e evolução constante.
 
 <!-- SOBRE -->
 
-<section class="relative py-32 bg-[#090909] overflow-hidden">
+<section class="relative py-32 overflow-hidden">
 
 <div class="watermark"></div>
 
-<div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center relative z-10">
+<div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center relative z-[2]">
 
 <div class="reveal">
 
@@ -457,7 +492,7 @@ Tudo aplicado de forma personalizada para sua realidade e objetivo.
 
 <div class="glow-green bottom-[-200px] left-[-100px]"></div>
 
-<div class="max-w-4xl mx-auto px-6 text-center relative z-10 reveal">
+<div class="max-w-4xl mx-auto px-6 text-center relative z-[2] reveal">
 
 <span class="text-brand-red uppercase tracking-[0.25em] text-sm font-semibold">
 Consultoria personalizada

@@ -1,10 +1,11 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<title>Carlos Franca | Performance & Estética</title>
+<title>Carlos França | Performance & Estética</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://unpkg.com/lucide@latest"></script>
@@ -21,8 +22,10 @@ sans:['Plus Jakarta Sans','sans-serif']
 colors:{
 brand:{
 dark:'#050505',
-soft:'#0d0d0d',
-primary:'#e11d48'
+soft:'#0b0b0b',
+green:'#0C9B2D',
+red:'#A5142B',
+white:'#F5F5F5'
 }
 }
 }
@@ -32,19 +35,15 @@ primary:'#e11d48'
 
 <style>
 
+html{
+scroll-behavior:smooth;
+}
+
 body{
 background:#050505;
 overflow-x:hidden;
-}
-
-.glow{
-position:absolute;
-width:500px;
-height:500px;
-border-radius:999px;
-background:rgba(225,29,72,.15);
-filter:blur(120px);
-pointer-events:none;
+font-family:'Plus Jakarta Sans',sans-serif;
+color:#fff;
 }
 
 .grid-overlay{
@@ -52,6 +51,38 @@ background-image:
 linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
 linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
 background-size:40px 40px;
+}
+
+.glow-green{
+position:absolute;
+width:500px;
+height:500px;
+border-radius:999px;
+background:rgba(12,155,45,.18);
+filter:blur(120px);
+pointer-events:none;
+}
+
+.glow-red{
+position:absolute;
+width:500px;
+height:500px;
+border-radius:999px;
+background:rgba(165,20,43,.18);
+filter:blur(120px);
+pointer-events:none;
+}
+
+.watermark{
+position:absolute;
+inset:0;
+background:
+linear-gradient(rgba(0,0,0,.94),rgba(0,0,0,.95)),
+url('./images/watermark.jpg');
+background-size:cover;
+background-position:center;
+opacity:.12;
+pointer-events:none;
 }
 
 .reveal{
@@ -65,17 +96,48 @@ opacity:1;
 transform:translateY(0);
 }
 
+.card{
+background:rgba(255,255,255,.03);
+border:1px solid rgba(255,255,255,.08);
+backdrop-filter:blur(20px);
+transition:.4s;
+}
+
+.card:hover{
+transform:translateY(-6px);
+border-color:rgba(12,155,45,.25);
+}
+
+.primary-btn{
+background:linear-gradient(135deg,#0C9B2D,#087923);
+box-shadow:0 20px 60px rgba(12,155,45,.25);
+transition:.3s;
+}
+
+.primary-btn:hover{
+transform:translateY(-3px);
+box-shadow:0 20px 70px rgba(12,155,45,.4);
+}
+
+.section-title{
+line-height:.92;
+letter-spacing:-0.06em;
+}
+
 </style>
 
 </head>
 
-<body class="text-white font-sans">
+<body class="font-sans text-white">
 
 <!-- HERO -->
 
 <section class="relative min-h-screen flex items-center overflow-hidden grid-overlay">
 
-<div class="glow top-[-150px] right-[-100px]"></div>
+<div class="watermark"></div>
+
+<div class="glow-green top-[-180px] left-[-100px]"></div>
+<div class="glow-red bottom-[-220px] right-[-100px]"></div>
 
 <div class="max-w-7xl mx-auto px-6 py-24 grid lg:grid-cols-2 gap-20 items-center relative z-10">
 
@@ -83,11 +145,17 @@ transform:translateY(0);
 
 <div class="space-y-8 reveal">
 
-<div class="inline-flex items-center gap-3 border border-white/10 bg-white/5 backdrop-blur-xl px-5 py-3 rounded-full text-sm tracking-[0.25em] uppercase text-rose-500 font-semibold">
+<img
+src="./images/logo.png"
+alt="Carlos França"
+class="w-52"
+>
+
+<div class="inline-flex items-center gap-3 border border-white/10 bg-white/5 backdrop-blur-xl px-5 py-3 rounded-full text-sm tracking-[0.25em] uppercase text-brand-green font-semibold">
 Performance • Estética • Resultado Real
 </div>
 
-<h1 class="text-5xl md:text-7xl font-black leading-[0.92] tracking-[-0.06em] max-w-4xl">
+<h1 class="text-5xl md:text-7xl font-black section-title max-w-4xl">
 Transforme seu físico com estratégia, performance e constância.
 </h1>
 
@@ -99,7 +167,7 @@ Nutrição e treino aplicados de forma inteligente para quem busca evolução es
 
 <a
 href="https://api.whatsapp.com/send/?phone=5516993972761&text=Olá,%20quero%20saber%20mais%20sobre%20a%20consultoria&type=phone_number&app_absent=0"
-class="bg-rose-600 hover:bg-rose-700 transition-all duration-300 px-10 py-5 rounded-2xl font-bold text-lg shadow-[0_20px_60px_rgba(225,29,72,0.35)]"
+class="primary-btn px-10 py-5 rounded-2xl font-bold text-lg"
 >
 QUERO COMEÇAR AGORA
 </a>
@@ -109,23 +177,23 @@ QUERO COMEÇAR AGORA
 <div class="grid grid-cols-2 md:grid-cols-3 gap-10 pt-10">
 
 <div>
-<h3 class="text-4xl font-black">15+</h3>
+<h3 class="text-4xl font-black text-brand-green">5+</h3>
 <p class="text-zinc-500 mt-2 text-sm uppercase tracking-wider">
-anos no fisiculturismo
+anos de vivência em competições
 </p>
 </div>
 
 <div>
-<h3 class="text-4xl font-black">1000+</h3>
+<h3 class="text-4xl font-black text-brand-red">1000+</h3>
 <p class="text-zinc-500 mt-2 text-sm uppercase tracking-wider">
 vidas transformadas
 </p>
 </div>
 
 <div>
-<h3 class="text-4xl font-black">Global</h3>
+<h3 class="text-4xl font-black text-white">Online</h3>
 <p class="text-zinc-500 mt-2 text-sm uppercase tracking-wider">
-consultorias online
+consultorias personalizadas
 </p>
 </div>
 
@@ -137,11 +205,11 @@ consultorias online
 
 <div class="relative flex justify-center reveal">
 
-<div class="absolute w-[420px] h-[420px] rounded-full bg-rose-600/20 blur-[120px]"></div>
+<div class="absolute w-[420px] h-[420px] rounded-full bg-brand-green/20 blur-[120px]"></div>
 
 <img
-src="./images/carlos-franca.jpg"
-alt="Carlos Franca"
+src="./images/hero.jpg"
+alt="Carlos França"
 class="relative z-10 rounded-[36px] border border-white/10 shadow-2xl object-cover max-h-[780px]"
 >
 
@@ -153,13 +221,15 @@ class="relative z-10 rounded-[36px] border border-white/10 shadow-2xl object-cov
 
 <!-- DOBRA DOR -->
 
-<section class="py-28 bg-[#0b0b0b] border-t border-white/5">
+<section class="relative py-28 bg-[#0b0b0b] border-t border-white/5 overflow-hidden">
 
-<div class="max-w-6xl mx-auto px-6">
+<div class="watermark"></div>
+
+<div class="max-w-6xl mx-auto px-6 relative z-10">
 
 <div class="max-w-3xl mb-20 reveal">
 
-<span class="text-rose-500 uppercase tracking-[0.25em] text-sm font-semibold">
+<span class="text-brand-green uppercase tracking-[0.25em] text-sm font-semibold">
 O problema
 </span>
 
@@ -175,7 +245,7 @@ A maioria das pessoas vive presa entre dietas extremas, treinos sem direção e 
 
 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
 
-<div class="bg-white/[0.03] border border-white/10 rounded-[28px] p-8 reveal">
+<div class="card rounded-[28px] p-8 reveal">
 <h3 class="text-2xl font-bold mb-5">
 Dietas impossíveis
 </h3>
@@ -184,7 +254,7 @@ Protocolos que destroem sua constância e tornam o processo insustentável.
 </p>
 </div>
 
-<div class="bg-white/[0.03] border border-white/10 rounded-[28px] p-8 reveal">
+<div class="card rounded-[28px] p-8 reveal">
 <h3 class="text-2xl font-bold mb-5">
 Treinos aleatórios
 </h3>
@@ -193,7 +263,7 @@ Muito esforço, pouca inteligência e quase nenhum progresso consistente.
 </p>
 </div>
 
-<div class="bg-white/[0.03] border border-white/10 rounded-[28px] p-8 reveal">
+<div class="card rounded-[28px] p-8 reveal">
 <h3 class="text-2xl font-bold mb-5">
 Resultados temporários
 </h3>
@@ -202,7 +272,7 @@ Você até evolui por um período, mas sempre acaba voltando ao ponto inicial.
 </p>
 </div>
 
-<div class="bg-white/[0.03] border border-white/10 rounded-[28px] p-8 reveal">
+<div class="card rounded-[28px] p-8 reveal">
 <h3 class="text-2xl font-bold mb-5">
 Baixa autoestima
 </h3>
@@ -219,16 +289,18 @@ Seu físico começa a impactar energia, confiança e percepção pessoal.
 
 <!-- MÉTODO -->
 
-<section class="py-32 bg-black relative overflow-hidden">
+<section class="relative py-32 bg-black overflow-hidden">
 
-<div class="glow bottom-[-250px] left-[-100px]"></div>
+<div class="watermark"></div>
+
+<div class="glow-green bottom-[-250px] left-[-100px]"></div>
 
 <div class="max-w-6xl mx-auto px-6 relative z-10">
 
 <div class="text-center max-w-4xl mx-auto mb-24 reveal">
 
-<span class="text-rose-500 uppercase tracking-[0.25em] text-sm font-semibold">
-Método Carlos Franca
+<span class="text-brand-red uppercase tracking-[0.25em] text-sm font-semibold">
+Método Carlos França
 </span>
 
 <h2 class="text-5xl md:text-6xl font-black mt-6 tracking-[-0.05em]">
@@ -236,17 +308,17 @@ Performance. Estética. Consistência.
 </h2>
 
 <p class="text-zinc-400 text-xl mt-8 leading-relaxed">
-Uma metodologia construída através da prática no fisiculturismo e aplicada de forma estratégica para gerar resultados reais sem destruir sua rotina.
+Uma metodologia construída através da prática em competições e aplicada de forma estratégica para gerar resultados reais sem destruir sua rotina.
 </p>
 
 </div>
 
 <div class="grid md:grid-cols-3 gap-8">
 
-<div class="bg-zinc-900 border border-white/10 rounded-[32px] p-10 reveal">
+<div class="card rounded-[32px] p-10 reveal">
 
-<div class="w-16 h-16 rounded-2xl bg-rose-600/10 flex items-center justify-center mb-8">
-<i data-lucide="dumbbell" class="w-8 h-8 text-rose-500"></i>
+<div class="w-16 h-16 rounded-2xl bg-brand-green/10 flex items-center justify-center mb-8">
+<i data-lucide="dumbbell" class="w-8 h-8 text-brand-green"></i>
 </div>
 
 <h3 class="text-3xl font-bold mb-6">
@@ -259,10 +331,10 @@ Treinos estruturados para evolução física real respeitando seu objetivo e rot
 
 </div>
 
-<div class="bg-zinc-900 border border-white/10 rounded-[32px] p-10 reveal">
+<div class="card rounded-[32px] p-10 reveal">
 
-<div class="w-16 h-16 rounded-2xl bg-rose-600/10 flex items-center justify-center mb-8">
-<i data-lucide="apple" class="w-8 h-8 text-rose-500"></i>
+<div class="w-16 h-16 rounded-2xl bg-brand-red/10 flex items-center justify-center mb-8">
+<i data-lucide="apple" class="w-8 h-8 text-brand-red"></i>
 </div>
 
 <h3 class="text-3xl font-bold mb-6">
@@ -275,10 +347,10 @@ Planejamento alimentar pensado para gerar resultado sem extremismos.
 
 </div>
 
-<div class="bg-zinc-900 border border-white/10 rounded-[32px] p-10 reveal">
+<div class="card rounded-[32px] p-10 reveal">
 
-<div class="w-16 h-16 rounded-2xl bg-rose-600/10 flex items-center justify-center mb-8">
-<i data-lucide="activity" class="w-8 h-8 text-rose-500"></i>
+<div class="w-16 h-16 rounded-2xl bg-white/10 flex items-center justify-center mb-8">
+<i data-lucide="activity" class="w-8 h-8 text-white"></i>
 </div>
 
 <h3 class="text-3xl font-bold mb-6">
@@ -299,15 +371,17 @@ Mais disposição, evolução estética e transformação sustentável no longo 
 
 <!-- SOBRE -->
 
-<section class="py-32 bg-[#0b0b0b]">
+<section class="relative py-32 bg-[#0b0b0b] overflow-hidden">
 
-<div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
+<div class="watermark"></div>
+
+<div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center relative z-10">
 
 <div class="reveal">
 
 <img
-src="./images/carlos-about.jpg"
-alt="Carlos Franca"
+src="./images/about.jpg"
+alt="Carlos França"
 class="rounded-[36px] border border-white/10 shadow-2xl"
 >
 
@@ -315,8 +389,8 @@ class="rounded-[36px] border border-white/10 shadow-2xl"
 
 <div class="reveal">
 
-<span class="text-rose-500 uppercase tracking-[0.25em] text-sm font-semibold">
-Carlos Franca
+<span class="text-brand-green uppercase tracking-[0.25em] text-sm font-semibold">
+Carlos França
 </span>
 
 <h2 class="text-5xl font-black mt-6 mb-8 tracking-[-0.05em]">
@@ -326,15 +400,15 @@ Experiência prática aplicada à transformação física.
 <div class="space-y-6 text-zinc-400 text-lg leading-relaxed">
 
 <p>
-Carlos Franca une formação em Educação Física e Nutrição com mais de 15 anos de vivência no fisiculturismo.
+Carlos França une treino, nutrição e experiência prática em competições para ajudar pessoas a construírem um físico forte, estético e sustentável.
 </p>
 
 <p>
-Sua abordagem combina performance, estética e sustentabilidade para pessoas que desejam transformar o corpo sem viver reféns de extremismos.
+Sua abordagem combina performance, estética e consistência para pessoas que desejam transformar o corpo sem viver reféns de extremismos.
 </p>
 
 <p>
-Mais do que protocolos genéricos, o foco é criar uma estratégia personalizada capaz de gerar resultado real e consistente.
+Mais do que protocolos genéricos, o foco é criar uma estratégia personalizada capaz de gerar resultado real e duradouro.
 </p>
 
 </div>
@@ -347,12 +421,14 @@ Mais do que protocolos genéricos, o foco é criar uma estratégia personalizada
 
 <!-- PROVA -->
 
-<section class="py-32 bg-gradient-to-b from-rose-600 to-rose-700">
+<section class="py-32 bg-gradient-to-b from-[#0C9B2D] to-[#087923] relative overflow-hidden">
 
-<div class="max-w-5xl mx-auto px-6 text-center reveal">
+<div class="watermark"></div>
+
+<div class="max-w-5xl mx-auto px-6 text-center reveal relative z-10">
 
 <h2 class="text-5xl md:text-6xl font-black tracking-[-0.05em] leading-tight">
-Mais de 1.000 pessoas transformaram o corpo através da metodologia Carlos Franca.
+Mais de 1.000 pessoas transformaram o corpo através da metodologia Carlos França.
 </h2>
 
 <p class="text-white/80 text-xl mt-10 leading-relaxed max-w-3xl mx-auto">
@@ -365,13 +441,15 @@ Resultados construídos com estratégia, constância e acompanhamento real.
 
 <!-- CTA -->
 
-<section class="py-32 bg-black relative overflow-hidden">
+<section class="relative py-32 bg-black overflow-hidden">
 
-<div class="glow bottom-[-200px] right-[-100px]"></div>
+<div class="watermark"></div>
+
+<div class="glow-red bottom-[-200px] right-[-100px]"></div>
 
 <div class="max-w-4xl mx-auto px-6 text-center relative z-10 reveal">
 
-<span class="text-rose-500 uppercase tracking-[0.25em] text-sm font-semibold">
+<span class="text-brand-red uppercase tracking-[0.25em] text-sm font-semibold">
 Consultoria personalizada
 </span>
 
@@ -380,12 +458,12 @@ Sua melhor versão começa agora.
 </h2>
 
 <p class="text-zinc-400 text-xl leading-relaxed mt-10 max-w-2xl mx-auto">
-Clique no botão abaixo e fale diretamente com Carlos Franca para iniciar sua transformação física.
+Clique no botão abaixo e fale diretamente com Carlos França para iniciar sua transformação física.
 </p>
 
 <a
 href="https://api.whatsapp.com/send/?phone=5516993972761&text=Olá,%20quero%20saber%20mais%20sobre%20a%20consultoria&type=phone_number&app_absent=0"
-class="inline-flex mt-14 bg-white text-black px-12 py-6 rounded-2xl font-black text-lg hover:bg-zinc-200 transition-all"
+class="inline-flex mt-14 primary-btn text-white px-12 py-6 rounded-2xl font-black text-lg"
 >
 QUERO MINHA CONSULTORIA
 </a>
@@ -423,3 +501,22 @@ revealOnScroll();
 
 </body>
 </html>
+```
+
+IMAGENS JPG:
+
+```bash
+/images/hero.jpg
+/images/about.jpg
+/images/watermark.jpg
+/images/logo.png
+```
+
+hero.jpg
+→ foto camisa preta
+
+about.jpg
+→ foto apontando pro abdômen
+
+watermark.jpg
+→ foto de costas no palco

@@ -188,6 +188,26 @@ position:relative;
 z-index:3;
 }
 
+/* WHATSAPP FLOAT BUTTON EFFECT */
+.whatsapp-float {
+animation: pulse-green 2s infinite;
+}
+
+@keyframes pulse-green {
+0% {
+transform: scale(1);
+box-shadow: 0 0 0 0 rgba(12, 155, 45, 0.7);
+}
+70% {
+transform: scale(1.05);
+box-shadow: 0 0 0 15px rgba(12, 155, 45, 0);
+}
+100% {
+transform: scale(1);
+box-shadow: 0 0 0 0 rgba(12, 155, 45, 0);
+}
+}
+
 /* MOBILE */
 
 @media(max-width:768px){
@@ -212,6 +232,16 @@ max-height:580px;
 </head>
 
 <body>
+
+<!-- WHATSAPP FLOATING BUTTON -->
+<a
+href="https://api.whatsapp.com/send/?phone=5516993972761&text=Olá,%20quero%20saber%20mais%20sobre%20a%20consultoria&type=phone_number&app_absent=0"
+target="_blank"
+class="whatsapp-float fixed bottom-6 right-6 w-16 h-16 bg-[#0C9B2D] text-white rounded-full flex items-center justify-center z-[999] transition-transform duration-300 hover:scale-110 shadow-2xl"
+aria-label="Fale comigo no WhatsApp"
+>
+<i data-lucide="message-circle" class="w-8 h-8 fill-white"></i>
+</a>
 
 <!-- HERO -->
 
